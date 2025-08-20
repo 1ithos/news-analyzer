@@ -1,0 +1,61 @@
+# 新闻源配置
+sites:
+  - name: '36氪'
+    url: 'https://36kr.com/feed'
+    parser_class: 'StandardRSSParser'
+  - name: '极客公园'
+    url: 'http://www.geekpark.net/rss'
+    parser_class: 'GeekParkRSSParser'
+  - name: '国务院政策文件库'
+    url: 'http://www.gov.cn/rss/zhengce.xml'
+    parser_class: 'StandardRSSParser'
+  - name: '新华社'
+    url: 'https://plink.anyfeeder.com/newscn/whxw'
+    parser_class: 'StandardRSSParser'
+  - name: '人民网'
+    url: 'http://www.people.com.cn/rss/society.xml'
+    parser_class: 'StandardRSSParser'
+  - name: '路透社'
+    url: 'https://reutersnew.buzzing.cc/feed.xml'
+    parser_class: 'TitlesParser'
+  - name: '法国国际广播电台'
+    url: 'https://plink.anyfeeder.com/rfi/cn'
+    parser_class: 'StandardRSSParser'
+  - name: '纽约时报'
+    url: 'https://plink.anyfeeder.com/nytimes/cn'
+    parser_class: 'StandardRSSParser'
+  - name: '经济学人'
+    url: 'https://economistnew.buzzing.cc/feed.xml'
+    parser_class: 'TitlesParser'
+
+# 强制保留规则
+force_keep_rules:
+  - type: 'keyword'
+    values: ['8点1氪', '氪星晚报']
+
+# 类别配额规则
+category_quotas:
+  '科技与商业': 8
+  '国际动态': 8
+  '社会与文化': 6
+
+# 筛选与输出配置
+selection_total_limit: 20
+
+#并发数
+max_workers: 5
+
+# 代理配置 (可选)
+proxy:
+  http: 'http://127.0.0.1:7890'
+  https: 'http://127.0.0.1:7890'
+
+#数据库配置
+database:
+  file_path: 'news_analyzer.db'
+  table_name: 'articles'
+
+data_retention:
+  enabled: true                 # 是否启用定期清理
+  days_to_keep: 7               # 保留最近7天的数据
+
