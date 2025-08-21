@@ -143,4 +143,5 @@ python main.py
 
 ## 📄 许可证
 
-本项目采用 [MIT License](LICENSE)。
+本项目采用 [MIT LICENSE](https://mit-license.org/)。
+
